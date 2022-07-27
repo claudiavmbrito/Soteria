@@ -18,6 +18,12 @@ Furthermore, the main goal of Soteria, besides providing alternatives for state-
 
 The architecture of Soteria consists of two main designs, SML-1 and SML-2. 
 
+<object data="https://github.com/claudiavmbrito/Soteria/blob/main/images/arch_soteria_poster.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="https://github.com/claudiavmbrito/Soteria/blob/main/images/arch_soteria_poster.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="https://github.com/claudiavmbrito/Soteria/blob/main/images/arch_soteria_poster.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+
 ![Soteria architecture and operations flow.]((https://github.com/claudiavmbrito/Soteria/blob/main/images/arch_soteria_poster.pdf))
 
 SML-1 intends to run all the workloads inside the enclaves, with both master and worker nodes running inside the enclaves.
