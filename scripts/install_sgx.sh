@@ -23,7 +23,6 @@ chmod u+x sgx_linux_x64_sdk_2.8.100.3.bin
 sudo ./sgx_linux_x64_driver_2.6.0_51c4821.bin
 
 
-
 echo 'deb [arch=amd64] https://download.01.org/intel-sgx/sgx_repo/ubuntu bionic main' | sudo tee /etc/apt/sources.list.d/intel-sgx.list
 wget -qO - https://download.01.org/intel-sgx/sgx_repo/ubuntu/intel-sgx-deb.key | sudo apt-key add -
 sudo apt-get update
