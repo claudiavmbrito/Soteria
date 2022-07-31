@@ -50,7 +50,7 @@ The code for "Soteria: Privacy-Preserving Machine Learning for Apache Spark" wil
 
 #### Apache Spark
 
-To install Apache Spark to test the native version, please run and see `build.sh` in [`scripts`](https://github.com/claudiavmbrito/Soteria/tree/main/scripts)
+To install Apache Spark to test the vanilla version, please run and see `build.sh` in [`scripts`](https://github.com/claudiavmbrito/Soteria/tree/main/scripts)
 
 #### Intel SGX
 
