@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# install SGX and its SDK package
-bash ./install_sgx.sh
-
 # For vanilla tests
 sudo apt-get install maven git scala -y
 export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"

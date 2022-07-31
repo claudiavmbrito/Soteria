@@ -46,11 +46,18 @@ ___
 
 ## Getting Started
 
+The code for "Soteria: Privacy-Preserving Machine Learning for Apache Spark" will be published here soon.
+
 #### Apache Spark
 
 To install Apache Spark to test the native version, please run and see `build.sh` in [`scripts`](https://github.com/claudiavmbrito/Soteria/tree/main/scripts)
 
-The code for "Soteria: Privacy-Preserving Machine Learning for Apache Spark" will be published here soon.
+#### Intel SGX
+
+To install SGX SDK and its Driver, please see `install_sgx.sh` and run:
+```
+bash ./install_sgx.sh
+```
 
 #### Dependencies
 
