@@ -10,14 +10,18 @@ Furthermore, the main goal of Soteria, besides providing alternatives for state-
 
 ___
 ## Machine Learning and Attacks
+Soteria was built based on the current attacks to the machine learning pipeline as seen in the figure below. 
+Specifically, we will consider Adversarial Attacks, Model Extraction, Model Inversion and Membership Inference, and Reconstruction Attacks. 
 
 <p align="center">
-    <img src="images/ml_pipeline_refactor-1.png" alt="Soteria Architecture" title="Soteria Architecture and Flow">
+    <img src="images/ml_pipeline_refactor-1.png" alt="Soteria Architecture" title="Machine Learning Pipeline and Attacks">
 </p>
+
 
 
 ## Architecture
 
+As depicted in Figure \ref{fig_architecture} by the gray boxes, a Spark cluster is composed of a Master and several Worker nodes.
 The architecture of Soteria consists of two main designs, SML-1 and SML-2. 
 
 <p align="center">
@@ -34,13 +38,17 @@ SML-2 resorts to the partitioning of computation between what runs inside the en
 
 ## Security Proofs
 
-In [`proofs`](https://github.com/claudiavmbrito/Soteria/tree/main/proofs), we present the security proofs of Soteria. Here, we discuss the security protocol followed by Soteria and define it formally. 
+In [`proofs`](https://github.com/claudiavmbrito/Soteria/tree/main/proofs), you can find the security proofs of Soteria. We discuss the security protocol followed by Soteria and define it formally. 
 
 It is divided into two main sections: Section A present the full proof of Soteria for all components and Section B depicts the ML attacks and in which circumstances Soteria is secure against each attack. 
 
 ___
 
 ## Getting Started
+
+#### Apache Spark
+
+To install Apache Spark to test the native version, please run and see `build.sh` in [`scripts`](https://github.com/claudiavmbrito/Soteria/tree/main/scripts)
 
 The code for "Soteria: Privacy-Preserving Machine Learning for Apache Spark" will be published here soon.
 
