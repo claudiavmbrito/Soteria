@@ -61,7 +61,7 @@ bash ./install_sgx.sh
 
 #### Dependencies
 
-Soteria is mainly written in Scala, JAVA and C and was built and tested with Intel's SGX SDK `2.8.100.3`, SGX Driver `2.6.0` and Gramine `1.0` (previously named Graphene-SGX).
+Soteria is mainly written in Scala, JAVA and C and was built and tested with Intel's SGX SDK `2.6`, SGX Driver `1.8` and Gramine `1.0` (previously named Graphene-SGX).
 
 ___
 
