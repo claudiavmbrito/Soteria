@@ -1,14 +1,13 @@
 # Soteria: Privacy-Preserving Machine Learning for Apache Spark
 
 **Soteria** is a privacy-preserving machine learning solution developed on top of [Apache Spark](https://github.com/apache/spark) and resorting to [Graphene-SGX](https://github.com/oscarlab/graphene) (currently named [Gramine](https://github.com/gramineproject/gramine)).
-
 Build upon the concept of computation partitioning, Soteria allows running machine learning workloads inside the enclaves while running non-sensitive code outside. 
-
-Furthermore, the main goal of Soteria, besides providing alternatives for state-of-the-art solutions is to improve the security of running these workloads in the real world. 
+The main goal of Soteria, besides providing alternatives for state-of-the-art solutions is to improve the security of running these workloads in the real world. 
 
 **Warning**: This is an academic proof-of-concept prototype and has not received careful code review. This implementation is NOT ready for production use.
 
 ___
+
 ## Machine Learning and Attacks
 Soteria was built based on the current attacks to the machine learning pipeline as seen in the figure below. 
 Specifically, we will consider Adversarial Attacks, Model Extraction, Model Inversion and Membership Inference, and Reconstruction Attacks. 
@@ -16,8 +15,6 @@ Specifically, we will consider Adversarial Attacks, Model Extraction, Model Inve
 <p align="center">
     <img src="images/ml_pipeline_refactor-1.png" alt="Soteria Architecture" title="Machine Learning Pipeline and Attacks">
 </p>
-
-
 
 ## Architecture
 
@@ -42,6 +39,22 @@ In [`proofs`](https://github.com/claudiavmbrito/Soteria/tree/main/proofs), you c
 
 It is divided into two main sections: Section A present the full proof of Soteria for all components and Section B depicts the ML attacks and in which circumstances Soteria is secure against each attack. 
 
+## Full paper
+
+For more information please see: 
+https://eprint.iacr.org/2021/966.pdf (will be updated soon)
+
+For citation:
+```
+@misc{cryptoeprint:2021/966,
+      author = {Cláudia Brito and Pedro Ferreira and Bernardo Portela and Rui Oliveira and João Paulo},
+      title = {Soteria: Privacy-Preserving Machine Learning for Apache Spark},
+      howpublished = {Cryptology ePrint Archive, Paper 2021/966},
+      year = {2021},
+      note = {\url{https://eprint.iacr.org/2021/966}},
+      url = {https://eprint.iacr.org/2021/966}
+}
+```
 ___
 
 ## Getting Started
