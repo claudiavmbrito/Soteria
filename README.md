@@ -44,7 +44,7 @@ It is divided into two main sections: Section A present the full proof of Soteri
 For more information please see: 
 https://eprint.iacr.org/2021/966.pdf (will be updated soon)
 
-For citation:
+If you need to cite our work:
 ```
 @misc{cryptoeprint:2021/966,
       author = {Cláudia Brito and Pedro Ferreira and Bernardo Portela and Rui Oliveira and João Paulo},
