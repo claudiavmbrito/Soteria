@@ -7,8 +7,9 @@ The main goal of Soteria, besides providing alternatives for state-of-the-art so
 **Warning**: This is an academic proof-of-concept prototype and has not received careful code review. This implementation is NOT ready for production use.
 
 ___
+## Overview
 
-## Machine Learning and Attacks
+### Machine Learning and Attacks
 Soteria was built based on the current attacks to the machine learning pipeline as seen in the figure below. 
 Specifically, we will consider Adversarial Attacks, Model Extraction, Model Inversion and Membership Inference, and Reconstruction Attacks. 
 
@@ -16,7 +17,7 @@ Specifically, we will consider Adversarial Attacks, Model Extraction, Model Inve
     <img src="images/ml_pipeline_refactor-1.png" alt="Soteria Architecture" title="Machine Learning Pipeline and Attacks">
 </p>
 
-## Architecture
+### Architecture
 
 As depicted in Figure \ref{fig_architecture} by the gray boxes, a Spark cluster is composed of a Master and several Worker nodes.
 The architecture of Soteria consists of two main designs, SML-1 and SML-2. 
@@ -33,13 +34,13 @@ SML-2 resorts to the partitioning of computation between what runs inside the en
     <img src="images/spark-sml2-1.png" alt="Soteria Designs" title="Soteria Twofold Worker Design">
 </p>
 
-## Security Proofs
+### Security Proofs
 
 In [`proofs`](https://github.com/claudiavmbrito/Soteria/tree/main/proofs), you can find the security proofs of Soteria. We discuss the security protocol followed by Soteria and define it formally. 
 
 It is divided into two main sections: Section A present the full proof of Soteria for all components and Section B depicts the ML attacks and in which circumstances Soteria is secure against each attack. 
 
-## Full paper
+### Full paper
 
 For more information please see: 
 https://eprint.iacr.org/2021/966.pdf (will be updated soon)
