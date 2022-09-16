@@ -19,7 +19,7 @@ Specifically, we will consider Adversarial Attacks, Model Extraction, Model Inve
 
 ### Architecture
 
-As depicted in Figure \ref{fig_architecture} by the gray boxes, a Spark cluster is composed of a Master and several Worker nodes.
+As depicted in Figure 2 by the gray boxes, a Spark cluster is composed of a Master and several Worker nodes.
 The architecture of Soteria consists of two main designs, SML-1 and SML-2. 
 
 <p align="center">
