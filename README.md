@@ -41,6 +41,9 @@ In [`proofs`](https://github.com/claudiavmbrito/Soteria/tree/main/proofs), you c
 It is divided into two main sections: Section A present the full proof of Soteria for all components and Section B depicts the ML attacks and in which circumstances Soteria is secure against each attack. 
 
 ### Full paper
+ 
+**SOTERIA** was accepted for publication on SAC23. 
+Full citation will be available later on.
 
 For more information please see: 
 https://eprint.iacr.org/2021/966.pdf (will be updated soon)
