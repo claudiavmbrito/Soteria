@@ -8,6 +8,7 @@ The main goal of SOTERIA, besides providing alternatives for state-of-the-art so
 
 **Warning 2**: This is repository is being updated accordingly to the last submission.
 
+<!--
 ___
 ## Overview
 
@@ -103,6 +104,7 @@ bash ./install_cluster.sh
 Then, change the Manifest accordingly.
 
 ___
+-->
 
 ## Contact
 
