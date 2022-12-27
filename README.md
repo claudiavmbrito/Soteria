@@ -1,7 +1,7 @@
 # Soteria: Privacy-Preserving Machine Learning for Apache Spark
 
 **Soteria** is a privacy-preserving machine learning solution developed on top of [Apache Spark](https://github.com/apache/spark) and resorting to [Graphene-SGX](https://github.com/oscarlab/graphene) (currently named [Gramine](https://github.com/gramineproject/gramine)).
-Build upon the concept of computation partitioning, Soteria allows running machine learning workloads inside the enclaves while running non-sensitive code outside. 
+Built upon the concept of computation partitioning, Soteria allows running machine learning workloads inside the enclaves while running non-sensitive code outside. 
 The main goal of Soteria, besides providing alternatives for state-of-the-art solutions is to improve the security of running these workloads in the real world. 
 
 **Warning**: This is an academic proof-of-concept prototype and has not received careful code review. This implementation is NOT ready for production use.
