@@ -6,7 +6,7 @@ The main goal of SOTERIA, besides providing alternatives for state-of-the-art so
 
 **Warning 1**: This is an academic proof-of-concept prototype and has not received careful code review. This implementation is NOT ready for production use.
 
-**Warning 2**: This is repository is being updated accordingly to the last submission.
+**Warning 2**: This repository is being updated accordingly to SAC'23 accepted version.
 
 <!--
 ___
