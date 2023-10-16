@@ -11,22 +11,18 @@ The main goal of SOTERIA, besides providing alternatives for state-of-the-art so
 -------
 
 ### Full paper
- 
-**SOTERIA** was accepted for publication on SAC23. 
-Full citation will be available later on.
 
 For more information please see: 
-https://eprint.iacr.org/2021/966.pdf (will be updated soon)
+https://dl.acm.org/doi/pdf/10.1145/3555776.3578591
 
 If you need to cite our work:
 ```
-@misc{cryptoeprint:2021/966,
-      author = {Cláudia Brito and Pedro Ferreira and Bernardo Portela and Rui Oliveira and João Paulo},
-      title = {Soteria: Privacy-Preserving Machine Learning for Apache Spark},
-      howpublished = {Cryptology ePrint Archive, Paper 2021/966},
-      year = {2021},
-      note = {\url{https://eprint.iacr.org/2021/966}},
-      url = {https://eprint.iacr.org/2021/966}
+@inproceedings{brito2023soteria,
+  title={SOTERIA: Preserving Privacy in Distributed Machine Learning},
+  author={Brito, Cl{\'a}udia and Ferreira, Pedro and Portela, Bernardo and Oliveira, Rui and Paulo, Jo{\~a}o},
+  booktitle={Proceedings of the 38th ACM/SIGAPP Symposium on Applied Computing},
+  pages={135--142},
+  year={2023}
 }
 ```
 
