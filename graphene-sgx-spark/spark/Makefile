@@ -149,7 +149,7 @@ java-HelloWorld:
 	-XX:MaxHeapSize=512m \
 	HelloWorld
 
-.PHONY: java-ALS
+.PHONY: spark-ALS
 java-ALS:
 	./pal_loader spark.manifest \
 	-Xms${JVM_XMS} \
