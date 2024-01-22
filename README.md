@@ -24,6 +24,51 @@ If you need to cite our work:
 }
 ```
 
+
+--------
+
+## Getting Started
+
+### Dependencies
+
+SOTERIA is mainly written in Scala, JAVA and C and was built and tested with Intel's SGX SDK `2.6`, SGX Driver `1.8` and Gramine `1.0` (previously named Graphene-SGX).
+
+**NOTE**: This has been tested in Ubuntu 18.04, it has not been tested in newer OS versions.
+
+### Apache Spark
+
+To install Apache Spark to test the vanilla version, please run and see `build.sh` in [`scripts`](https://github.com/claudiavmbrito/Soteria/tree/main/scripts).
+
+#### Data Encryption
+
+For easy to use encryption, we implement an encryption mechanism based on AES-GCM 128. Such file is implemented inside of Apache Spark allowing its broad use outside SOTERIA.
+
+
+### Intel SGX
+
+To install SGX SDK and its Driver, please see `install_sgx.sh` and run:
+
+```
+bash ./install_sgx.sh
+```
+
+### Gramine 
+
+- To use the previous and base code of Gramine used to develop SOTERIA, please refer to https://github.com/gramineproject/gramine/tree/v1.0.
+- To use the updated version of Gramine, follow [Gramine](https://github.com/gramineproject/gramine) documentation. 
+- The manifest files need to be carefully changed to work with the new versions of Gramine. 
+---
+
+### Cluster in Cloudera 
+
+To install Cloudera version for which SOTERIA was tested, please see `install_cluster.sh` and run:
+
+```
+bash ./install_cluster.sh
+```
+
+Then, change the Manifest directories accordingly.
+
 <!--
 ___
 ## Overview
@@ -61,8 +106,6 @@ It is divided into two main sections: Section A present the full proof of SOTERI
 ___
 
 ## Getting Started
-
-The code for "SOTERIA: Privacy-Preserving Machine Learning for Apache Spark" will be fully published here soon.
 
 ### Dependencies
 
