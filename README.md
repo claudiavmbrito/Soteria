@@ -2,9 +2,10 @@
 
 **SOTERIA** is a privacy-preserving machine learning solution developed on top of [Apache Spark](https://github.com/apache/spark) and resorting to [Graphene-SGX](https://github.com/oscarlab/graphene) (currently named [Gramine](https://github.com/gramineproject/gramine)).
 Built upon the concept of computation partitioning, SOTERIA allows running machine learning workloads inside the enclaves while running non-sensitive code outside. 
-The main goal of SOTERIA, besides providing alternatives for state-of-the-art solutions is to improve the security of running these workloads in the real world. 
+The main goal of SOTERIA, in addition to providing alternatives to state-of-the-art solutions, is to improve the security of running these workloads in the real world. 
 
-**Warning 1**: This is an academic proof-of-concept prototype and has not received careful code review. This implementation is NOT ready for production use.
+**Warning 1**: This repository is being updated.
+**Warning 2**: This is an academic proof-of-concept prototype and has not received careful code review. This implementation is NOT ready for production use.
 
 -------
 
