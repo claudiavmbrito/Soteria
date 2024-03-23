@@ -5,7 +5,10 @@ Built upon the concept of computation partitioning, SOTERIA allows running machi
 The main goal of SOTERIA, in addition to providing alternatives to state-of-the-art solutions, is to improve the security of running these workloads in the real world. 
 
 **Warning 1**: This repository is being updated.
+
 **Warning 2**: This is an academic proof-of-concept prototype and has not received careful code review. This implementation is NOT ready for production use.
+
+**Warning 3**: Please be aware that this proof-of-concept is based on Graphene's implementation v1.0. Newer versions may be incompatible. 
 
 -------
 
