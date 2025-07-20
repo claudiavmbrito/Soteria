@@ -1,17 +1,68 @@
 # SOTERIA: Privacy-Preserving Machine Learning for Apache Spark
 
-**SOTERIA** is a privacy-preserving machine learning solution developed on top of [Apache Spark](https://github.com/apache/spark) and resorting to [Graphene-SGX](https://github.com/oscarlab/graphene) (currently named [Gramine](https://github.com/gramineproject/gramine)).
-Built upon the concept of computation partitioning, SOTERIA allows running machine learning workloads inside the enclaves while running non-sensitive code outside. 
+**SOTERIA** is a privacy-preserving machine learning solution developed on top of [Apache Spark](https://github.com/apache/spark) using Intel SGX for secure computation. It employs computation partitioning to perform sensitive computing tasks within secure enclaves and non-sensitive tasks outside.
 The main goal of SOTERIA, besides providing alternatives for state-of-the-art solutions is to improve the security of running these workloads in the real world. 
 
 **Warning 1**: This is an academic proof-of-concept prototype and has not received careful code review. This implementation is NOT ready for production use.
 
--------
+**Version Note**: This is SOTERIA v1.0, implementing the core SGX-based privacy-preserving ML framework with computation partitioning. Advanced security features like attack detection and pattern analysis are planned for future versions.
+
+### Installation
+
+Follow these steps to set up SOTERIA:
+
+1. **Install SGX Drivers and SDK**: Run the `install_sgx.sh` script.
+   ```bash
+   sudo bash scripts/install_sgx.sh
+   ```
+
+2. **Set up Cloudera Cluster**: SOTERIA was tested with Cloudera. Run the `install_cluster.sh` script.
+   ```bash
+   sudo bash scripts/install_cluster.sh
+   ```
+
+3. **Build Spark with Graphene**: Navigate to the `graphene-sgx-spark/spark` directory and use `make`.
+   ```bash
+   cd graphene-sgx-spark/spark
+   make
+   ```
+
+### Usage
+
+SOTERIA supports several machine learning workflows. Here's how you can use it:
+
+1. **Create a SOTERIA Session**:
+   ```scala
+   import soteria.core.SoteriaCore
+   val session = SoteriaCore.createSession("SoteriaApp")
+   ```
+
+2. **Load Data**:
+   ```scala
+   val encryptedDataset = session.loadEncryptedDataset[TrainingData]("path/to/data")
+   ```
+
+3. **Train a Model**:
+   ```scala
+   import soteria.ml.SoteriaML._
+   val logisticRegression = new SoteriaLogisticRegression(session)
+   val model = logisticRegression.train(encryptedDataset)
+   ```
+
+4. **Perform Inference**:
+   ```scala
+   val prediction = model.predict(features)
+   ```
+
+5. **Close Session**:
+   ```scala
+   session.close()
+   ```
 
 ### Full paper
 
-For more information please see: 
-https://dl.acm.org/doi/pdf/10.1145/3555776.3578591
+For more information, please see:
+IEEE Xplore: [Privacy-Preserving Machine Learning on Apache Spark](https://ieeexplore.ieee.org/document/10314994)
 
 If you need to cite our work:
 ```
@@ -27,11 +78,14 @@ If you need to cite our work:
 
 --------
 
-## Getting Started
+## Dependencies
 
-### Dependencies
+SOTERIA is implemented in Scala, Java, and C. It requires:
+- Intel SGX SDK
+- Apache Spark
+- Gramine (formerly Graphene)
 
-SOTERIA is mainly written in Scala, JAVA and C and was built and tested with Intel's SGX SDK `2.6`, SGX Driver `1.8` and Gramine `1.0` (previously named Graphene-SGX).
+Tested OS: Ubuntu 18.04 SP2
 
 **NOTE**: This has been tested in Ubuntu 18.04, it has not been tested in newer OS versions.
 
