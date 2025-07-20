@@ -70,12 +70,15 @@ IEEE Xplore: [Privacy-Preserving Machine Learning on Apache Spark](https://ieeex
 
 If you need to cite our work:
 ```
-@inproceedings{brito2023soteria,
-  title={SOTERIA: Preserving Privacy in Distributed Machine Learning},
-  author={Brito, Cl{\'a}udia and Ferreira, Pedro and Portela, Bernardo and Oliveira, Rui and Paulo, Jo{\~a}o},
-  booktitle={Proceedings of the 38th ACM/SIGAPP Symposium on Applied Computing},
-  pages={135--142},
-  year={2023}
+@article{brito2023soteria,
+  title={Privacy-preserving machine learning on Apache Spark},
+  author={Brito, Claudia V. and Ferreira, Pedro G. and Portela, Bernardo L. and Oliveira, Rui C. and Paulo, Joao T.},
+  journal={IEEE Access},
+  volume={11},
+  pages={127907--127930},
+  year={2023},
+  publisher={IEEE},
+  url={https://ieeexplore.ieee.org/document/10314994}
 }
 ```
 
