@@ -2,6 +2,8 @@ package soteria
 
 import java.nio.file.Files
 
+import scala.collection.JavaConverters._
+
 import soteria.bench.Bench
 import soteria.bench.Bench.{Options, Runner}
 import soteria.core.SoteriaCore.{SoteriaConfig, SoteriaSession}
@@ -40,16 +42,22 @@ class BenchSuite extends SparkTestBase {
     }
   }
 
-  test("part files are read in part-number order, whatever their sizes") {
+  test("part files of equal size are read in part-number order, not listing order") {
     val spark = session.spark
     import spark.implicits._
-    val dir = Files.createTempDirectory("soteria-bench-order").resolve("d").toString
-    // part-00000 is the smallest file and part-00001 the largest: ordering by
-    // size would put ids 10..1009 in the first partition.
-    val ranges = Seq(0L until 10L, 10L until 1010L, 1010L until 1110L)
-    spark.sparkContext.parallelize(ranges, ranges.size).flatMap(identity).toDF("id").write.parquet(dir)
-    val firstIds = Bench.readParts(spark, dir).as[Long].rdd
-      .mapPartitionsWithIndex((i, it) => Iterator(i -> it.min)).collect().sortBy(_._1).map(_._2)
+    val dir = Files.createTempDirectory("soteria-bench-order").resolve("d")
+    // Eight uncompressed files with the same number of fixed-width values:
+    // equal sizes, so only the tie-break decides which file is partition i.
+    val ranges = (0 until 8).map(p => (p * 1000) until (p * 1000 + 100))
+    spark.sparkContext.parallelize(ranges, ranges.size).flatMap(identity).toDF("id")
+      .write.option("compression", "none").parquet(dir.toString)
+    val sizes = Files.list(dir).iterator().asScala.filter(_.getFileName.toString.startsWith("part-")).map(Files.size).toSet
+    assume(sizes.size == 1, s"part files differ in size: $sizes")
+    spark.conf.set("spark.sql.files.minPartitionNum", ranges.size.toLong) // one file per partition, as in Runner
+    val firstIds =
+      try Bench.readParts(spark, dir.toString).as[Int].rdd
+        .mapPartitionsWithIndex((i, it) => Iterator(i -> it.min)).collect().sortBy(_._1).map(_._2)
+      finally spark.conf.unset("spark.sql.files.minPartitionNum")
     assert(firstIds.toSeq == ranges.map(_.head))
   }
 

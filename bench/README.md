@@ -58,11 +58,13 @@ Start with the default `SCALE=0.1`, then increase it. Under SGX, raise
   cost, explained variance (pca) or log perplexity (lda). It checks that
   SOTERIA trains the same models as vanilla Spark.
 - `input_partitions` is the number of splits the data was read into. The
-  part files are read in part-number order with a fixed split size
-  (`spark.sql.files.minPartitionNum`), so every mode, plain or encrypted,
-  sees the same rows in the same partitions. Sampling algorithms (K-Means
-  seeding, GBT binning, LDA) therefore train identical models in SML-1 and
-  SML-2, and ALS, GBT and LDA (MLlib in every mode) match vanilla exactly.
+  split size is fixed (`spark.sql.files.minPartitionNum`) and the part files
+  are listed in part-number order, so which rows share a partition depends
+  only on the files, not on the executors or the directory listing. Sampling
+  algorithms (K-Means seeding, GBT binning, LDA) therefore train identical
+  models in SML-1 and SML-2. Vanilla reads the plain copy, whose file sizes
+  can order differently from the encrypted ones, so its GBT or LDA quality
+  can differ slightly; the work done is the same.
 - `enclave_tasks` / `untrusted_tasks` count tasks by where they ran. In SML-2
   only the statistic combines of lr, linear, kmeans, bayes and pca run on
   untrusted executors; als, gbt and lda stay in enclaves (MLlib wrappers).

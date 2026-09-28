@@ -110,7 +110,8 @@ def overhead_figure(plt, algos, stats, title, path):
     ax.set_xticks(range(len(algos)))
     ax.set_xticklabels(algos, fontsize=8)
     ax.set_ylabel("median time / vanilla", fontsize=8, color=MUTED)
-    ax.legend(frameon=False, fontsize=8, loc="upper left")
+    ax.set_ylim(0, ax.get_ylim()[1] * 1.12)
+    ax.legend(frameon=False, fontsize=8, loc="upper center", bbox_to_anchor=(0.5, -0.12), ncol=len(modes))
     ax.set_title(title, fontsize=11, color=INK, loc="left")
     fig.tight_layout()
     fig.savefig(path, dpi=150)
@@ -134,6 +135,9 @@ def main():
 
     times, quality = group(load(a.csv))
     os.makedirs(a.out, exist_ok=True)
+    for old in os.listdir(a.out):  # charts of runners or scales no longer in the CSV
+        if old.endswith(".png") and old.startswith(("runtime-", "overhead-")):
+            os.remove(os.path.join(a.out, old))
     scales = sorted({k[0] for k in times if a.scale is None or k[0] == a.scale}, key=float)
     runners = sorted({k[1] for k in times if k[1] != "native"}) or ["native"]
     lines = ["# SOTERIA benchmark summary", "",

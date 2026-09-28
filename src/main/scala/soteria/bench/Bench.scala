@@ -312,19 +312,22 @@ object Bench {
   }
 
   /**
-   * Reads a Parquet directory one part file at a time, in part-number order.
-   * A plain `read.parquet(dir)` orders files by size and, on ties, by the
-   * directory listing (random file names; a Gramine process that wrote the
-   * directory may also list it in its own order), so the rows of each
-   * partition could differ between runs and modes. Here every mode, plain or
-   * encrypted, gets the same rows in the same partitions.
+   * Reads a Parquet directory with its part files given in part-number order.
+   * Spark assigns files to partitions by size and breaks ties in the order of
+   * its input paths. With `read.parquet(dir)` that is the directory listing
+   * (random file names; a Gramine process that wrote the directory may also
+   * list it in its own order), so the rows of each partition could differ
+   * between runs and modes. Listing the files explicitly makes the order a
+   * function of the files alone; plain and encrypted copies differ only by a
+   * constant encryption overhead per file, so they get the same partitions.
+   * One scan, so every Spark job plans a single file source.
    */
   def readParts(spark: SparkSession, dir: String): DataFrame = {
     val d = new Path(dir)
     val fs = d.getFileSystem(spark.sparkContext.hadoopConfiguration)
     val parts = fs.listStatus(d).map(_.getPath).filter(_.getName.startsWith("part-")).sortBy(_.getName)
     require(parts.nonEmpty, s"no data files in $dir")
-    parts.map(p => spark.read.parquet(p.toString)).reduce(_ union _)
+    spark.read.parquet(parts.map(_.toString): _*)
   }
 
   // Evaluation of the SOTERIA models: plain functions, so closures capture only the model.
